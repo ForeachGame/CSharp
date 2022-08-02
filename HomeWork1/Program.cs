@@ -12,7 +12,7 @@ namespace HomeWork1
         {
             // Task1();
             // Task2();
-            Task3();
+            // Task3();
             Task4();
             Task5();
             Console.ReadLine();
@@ -86,6 +86,18 @@ namespace HomeWork1
                 а) с использованием третьей переменной;
                 б) *без использования третьей переменной.
              */
+
+            int a = 1;
+            int b = 2;
+            Console.WriteLine($"Значение переменных: a: {a}, b: {b}");
+
+            int c = a; 
+            a = b;
+            b = c;
+            Console.WriteLine($"Изменённое значение переменных: a: {a}, b: {b}");
+            
+            (a, b) = (b, a);
+            Console.WriteLine($"Изменённое значение переменных: a: {a}, b: {b}");
         }
 
         private static void Task5()
