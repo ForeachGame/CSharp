@@ -10,15 +10,15 @@ namespace HomeWork1
     {
         static void Main(string[] args)
         {
-            task1();
-            task2();
-            task3();
-            task4();
-            task5();
+            Task1();
+            Task2();
+            Task3();
+            Task4();
+            Task5();
             Console.ReadLine();
         }
 
-        static void task1()
+        static void Task1()
         {
             /*
              1. Написать программу «Анкета». Последовательно задаются вопросы (имя, фамилия, возраст, рост, вес). В результате вся информация выводится в одну строчку:
@@ -26,20 +26,27 @@ namespace HomeWork1
                 б) используя форматированный вывод;
                 в) используя вывод со знаком $.
              */
-            startTask("Программа \"Анкета\"");
-            
-            string name = Console.
+            StartTask("Программа \"Анкета\"");
 
+            string name = ConsoleDataInput("Введите имя:");
+            string lastname = ConsoleDataInput("Введите фамилию:");
+            int age = int.Parse(ConsoleDataInput("Введите возраст:"));
+            int height = int.Parse(ConsoleDataInput("Введите рост:"));
+            int weight = int.Parse(ConsoleDataInput("Введите вес:"));
+
+            Console.WriteLine("Имя: " + name + "; Фамилия: " + lastname + "; Возраст: " + age + "; Рост: " + height + "; Вес: " + weight + ";");
+            Console.WriteLine("Имя: {0}; Фамилия: {1}; Возраст: {2}; Рост: {3}; Вес: {4};", name, lastname, age, height, weight);
+            Console.WriteLine($"Имя: {name}; Фамилия: {lastname}; Возраст: {age}; Рост: {height}; Вес: {weight};");
         }
 
-        static void task2()
+        static void Task2()
         {
             /*
              2. Ввести вес и рост человека. Рассчитать и вывести индекс массы тела (ИМТ) по формуле I=m/(h*h); где m — масса тела в килограммах, h — рост в метрах.
              */
         }
 
-        static void task3()
+        static void Task3()
         {
             /*
              3.
@@ -48,7 +55,7 @@ namespace HomeWork1
              */
         }
 
-        static void task4()
+        static void Task4()
         {
             /*
              4. Написать программу обмена значениями двух переменных типа int без использования вспомогательных методов.
@@ -57,7 +64,7 @@ namespace HomeWork1
              */
         }
 
-        static void task5()
+        static void Task5()
         {
             /*
              5.
@@ -67,9 +74,15 @@ namespace HomeWork1
              */
         }
 
-        static void startTask(string taskTitle)
+        static void StartTask(string taskTitle)
         {
             Console.WriteLine(taskTitle);
+        }
+
+        static string ConsoleDataInput(string title)
+        {
+            Console.WriteLine(title);
+            return Console.ReadLine();
         }
     }
 }
