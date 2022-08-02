@@ -13,7 +13,7 @@ namespace HomeWork1
             // Task1();
             // Task2();
             // Task3();
-            Task4();
+            // Task4();
             Task5();
             Console.ReadLine();
         }
@@ -108,6 +108,11 @@ namespace HomeWork1
                 б) Сделать задание, только вывод организовать в центре экрана.
                 в) *Сделать задание б с использованием собственных методов (например, Print(string ms, int x,int y).
              */
+            string data = "Черемисинов Александр, г. Тюмень";
+            int x = (Console.WindowWidth / 2) - (data.Length / 2);
+            int y = (Console.WindowHeight / 2) - 1;
+            
+            Print(data, x, y);
         }
 
         private static void StartTask(string taskTitle)
@@ -124,6 +129,12 @@ namespace HomeWork1
         private static double CoordResult(double x1, double y1, double x2, double y2)
         {
             return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+        }
+        
+        private static void Print(string ms, int x, int y)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine(ms);
         }
     }
 }
