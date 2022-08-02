@@ -10,7 +10,7 @@ namespace HomeWork1
     {
         static void Main(string[] args)
         {
-            Task1();
+            // Task1();
             Task2();
             Task3();
             Task4();
@@ -44,6 +44,14 @@ namespace HomeWork1
             /*
              2. Ввести вес и рост человека. Рассчитать и вывести индекс массы тела (ИМТ) по формуле I=m/(h*h); где m — масса тела в килограммах, h — рост в метрах.
              */
+
+            StartTask("Программа \"Индекс Массы Тела\"");
+
+            float weight = float.Parse(ConsoleDataInput("Введите массу тела в килограммах:"));
+            float height = float.Parse(ConsoleDataInput("Введите рост в метрах:"));
+
+            float result = weight / (height * height);
+            Console.WriteLine($"Индекс массы тела: {Math.Round(result, 2)};");
         }
 
         static void Task3()
