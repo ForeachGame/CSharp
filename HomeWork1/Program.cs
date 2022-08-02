@@ -6,22 +6,23 @@ using System.Threading.Tasks;
 
 namespace HomeWork1
 {
-    internal class Program
+    class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             // Task1();
-            Task2();
+            // Task2();
             Task3();
             Task4();
             Task5();
             Console.ReadLine();
         }
 
-        static void Task1()
+        private static void Task1()
         {
             /*
-             1. Написать программу «Анкета». Последовательно задаются вопросы (имя, фамилия, возраст, рост, вес). В результате вся информация выводится в одну строчку:
+             1. Написать программу «Анкета». Последовательно задаются вопросы (имя, фамилия, возраст, рост, вес). 
+             В результате вся информация выводится в одну строчку:
                 а) используя склеивание;
                 б) используя форматированный вывод;
                 в) используя вывод со знаком $.
@@ -34,15 +35,18 @@ namespace HomeWork1
             int height = int.Parse(ConsoleDataInput("Введите рост:"));
             int weight = int.Parse(ConsoleDataInput("Введите вес:"));
 
-            Console.WriteLine("Имя: " + name + "; Фамилия: " + lastname + "; Возраст: " + age + "; Рост: " + height + "; Вес: " + weight + ";");
-            Console.WriteLine("Имя: {0}; Фамилия: {1}; Возраст: {2}; Рост: {3}; Вес: {4};", name, lastname, age, height, weight);
+            Console.WriteLine("Имя: " + name + "; Фамилия: " + lastname + "; Возраст: " + age + "; Рост: " + 
+                              height + "; Вес: " + weight + ";");
+            Console.WriteLine("Имя: {0}; Фамилия: {1}; Возраст: {2}; Рост: {3}; Вес: {4};", 
+                name, lastname, age, height, weight);
             Console.WriteLine($"Имя: {name}; Фамилия: {lastname}; Возраст: {age}; Рост: {height}; Вес: {weight};");
         }
 
-        static void Task2()
+        private static void Task2()
         {
             /*
-             2. Ввести вес и рост человека. Рассчитать и вывести индекс массы тела (ИМТ) по формуле I=m/(h*h); где m — масса тела в килограммах, h — рост в метрах.
+             2. Ввести вес и рост человека. Рассчитать и вывести индекс массы тела (ИМТ) по формуле I=m/(h*h); 
+             где m — масса тела в килограммах, h — рост в метрах.
              */
 
             StartTask("Программа \"Индекс Массы Тела\"");
@@ -54,16 +58,28 @@ namespace HomeWork1
             Console.WriteLine($"Индекс массы тела: {Math.Round(result, 2)};");
         }
 
-        static void Task3()
+        private static void Task3()
         {
             /*
              3.
-                а) Написать программу, которая подсчитывает расстояние между точками с координатами x1, y1 и x2,y2 по формуле r=Math.Sqrt(Math.Pow(x2-x1,2)+Math.Pow(y2-y1,2). Вывести результат, используя спецификатор формата .2f (с двумя знаками после запятой);
+                а) Написать программу, которая подсчитывает расстояние между точками с координатами x1, y1 и x2,y2 
+                по формуле r=Math.Sqrt(Math.Pow(x2-x1,2)+Math.Pow(y2-y1,2). Вывести результат, используя спецификатор 
+                формата .2f (с двумя знаками после запятой);
                 б) *Выполнить предыдущее задание, оформив вычисления расстояния между точками в виде метода.
              */
+            
+            StartTask("Программа \"Расстояние между точками координат\"");
+
+            double x1 = Double.Parse(ConsoleDataInput("Введите координату x1:"));
+            double y1 = Double.Parse(ConsoleDataInput("Введите координату y1:"));
+            double x2 = Double.Parse(ConsoleDataInput("Введите координату x2:"));
+            double y2 = Double.Parse(ConsoleDataInput("Введите координату y2:"));
+            
+            Double result = CoordResult(x1, y1, x2, y2);
+            Console.WriteLine($"Расстояние между точками координат: {result:f2}");
         }
 
-        static void Task4()
+        private static void Task4()
         {
             /*
              4. Написать программу обмена значениями двух переменных типа int без использования вспомогательных методов.
@@ -72,7 +88,7 @@ namespace HomeWork1
              */
         }
 
-        static void Task5()
+        private static void Task5()
         {
             /*
              5.
@@ -82,15 +98,20 @@ namespace HomeWork1
              */
         }
 
-        static void StartTask(string taskTitle)
+        private static void StartTask(string taskTitle)
         {
             Console.WriteLine(taskTitle);
         }
 
-        static string ConsoleDataInput(string title)
+        private static string ConsoleDataInput(string title)
         {
             Console.WriteLine(title);
             return Console.ReadLine();
+        }
+
+        private static double CoordResult(double x1, double y1, double x2, double y2)
+        {
+            return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
         }
     }
 }
