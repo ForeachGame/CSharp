@@ -8,12 +8,12 @@ namespace HomeWork1
 {
     class Program
     {
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
-            // Task1();
-            // Task2();
-            // Task3();
-            // Task4();
+            Task1();
+            Task2();
+            Task3();
+            Task4();
             Task5();
             Console.ReadLine();
         }
@@ -51,11 +51,11 @@ namespace HomeWork1
 
             StartTask("Программа \"Индекс Массы Тела\"");
 
-            float weight = float.Parse(ConsoleDataInput("Введите массу тела в килограммах:"));
-            float height = float.Parse(ConsoleDataInput("Введите рост в метрах:"));
+            double weight = double.Parse(ConsoleDataInput("Введите массу тела в килограммах:"));
+            double height = double.Parse(ConsoleDataInput("Введите рост в метрах:"));
 
-            float result = weight / (height * height);
-            Console.WriteLine($"Индекс массы тела: {Math.Round(result, 2)};");
+            double result = weight / (height * height);
+            Console.WriteLine($"Индекс массы тела: {result:f2};");
         }
 
         private static void Task3()
@@ -86,7 +86,7 @@ namespace HomeWork1
                 а) с использованием третьей переменной;
                 б) *без использования третьей переменной.
              */
-
+            StartTask("Программа \"Обмен значениями\"");
             int a = 1;
             int b = 2;
             Console.WriteLine($"Значение переменных: a: {a}, b: {b}");
@@ -108,6 +108,11 @@ namespace HomeWork1
                 б) Сделать задание, только вывод организовать в центре экрана.
                 в) *Сделать задание б с использованием собственных методов (например, Print(string ms, int x,int y).
              */
+            
+            StartTask("Программа \"Вывод данных по центру консоли\"");
+            Console.WriteLine("Нажмите Enter, чтобы очистить консоль");
+            Console.ReadLine();
+            Console.Clear();
             string data = "Черемисинов Александр, г. Тюмень";
             int x = (Console.WindowWidth / 2) - (data.Length / 2);
             int y = (Console.WindowHeight / 2) - 1;
@@ -117,7 +122,9 @@ namespace HomeWork1
 
         private static void StartTask(string taskTitle)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(taskTitle);
+            Console.ResetColor();
         }
 
         private static string ConsoleDataInput(string title)
