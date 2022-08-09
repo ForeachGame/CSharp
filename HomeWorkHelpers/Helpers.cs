@@ -12,6 +12,12 @@ namespace HomeWorkHelpers
             Console.WriteLine("=======================================");
         }
 
+        public static void MainScreen(int homeworkNumber)
+        {
+            Console.Clear();
+            PrintStudentInfo(homeworkNumber);
+            Console.CursorVisible = false;
+        }
         public static void CloseProgram()
         {
             Process.GetCurrentProcess().Kill();
@@ -48,6 +54,22 @@ namespace HomeWorkHelpers
         public static void Spacer()
         {
             Console.WriteLine("================================");
+        }
+
+        public static void Header(string title)
+        {
+            Console.WriteLine(title);
+            Spacer();
+        }
+
+        public static void CheckParse(out double value, string title)
+        {
+            bool flag;
+
+            do
+            {
+                flag = double.TryParse(ConsoleDataInput(title), out value);
+            } while (!flag);
         }
     }
 }
