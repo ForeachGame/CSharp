@@ -5,6 +5,16 @@ namespace HomeWorkHelpers
 {
     public class Helpers
     {
+
+        public static int StartProgram(int homeworkNumber, string[] tasks)
+        {
+            MainScreen(homeworkNumber);
+            int number = ConsoleMenu.Select(0, 3, tasks);
+            if (number == tasks.Length) CloseProgram();
+            Console.CursorVisible = true;
+            Clear();
+            return number;
+        }
         public static void PrintStudentInfo(int homeworkNumber)
         {
             Console.WriteLine($"Домашняя работа. Урок: {homeworkNumber}");
@@ -33,7 +43,7 @@ namespace HomeWorkHelpers
             newArray[array.Length] = str;
             return newArray;
         }
-        
+
         public static string ConsoleDataInput(string title)
         {
             Console.Write(title);
@@ -69,6 +79,16 @@ namespace HomeWorkHelpers
             do
             {
                 flag = double.TryParse(ConsoleDataInput(title), out value);
+            } while (!flag);
+        }
+        
+        public static void CheckParse(out int value, string title)
+        {
+            bool flag;
+
+            do
+            {
+                flag = int.TryParse(ConsoleDataInput(title), out value);
             } while (!flag);
         }
     }
